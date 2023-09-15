@@ -7,7 +7,7 @@ import { UserRead, UserCreate } from 'src/app/types';
 })
 export class UserService {
   private users: Array<UserCreate> = [];
-
+  private loggedUser : UserCreate | undefined;
   constructor() {
     //Guardando usuario por defecto
     const user: UserCreate = {
@@ -31,7 +31,20 @@ export class UserService {
       (el) => el.email == username && el.password == password
     );
 
-    if (user) return true;
+    if (user){
+      this.setLoggedUser(user)
+      return true;
+    }
     return false;
+  }
+
+  setLoggedUser(user :UserCreate ){
+    this.loggedUser = user
+  }
+  getLoggedUser(){    
+    return this.loggedUser;
+  }
+  destroyLoggedUser(){
+    this.loggedUser = undefined
   }
 }
