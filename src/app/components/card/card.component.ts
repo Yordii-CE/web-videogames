@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faStar as starFill } from '@fortawesome/free-solid-svg-icons';
 import { faStar as star } from '@fortawesome/free-regular-svg-icons';
 
@@ -11,11 +11,11 @@ export class CardComponent {
   star = star;
   starFill = starFill;
 
-  title: string = '';
-  description: string = '';
-  releaseDate: string = '';
-  image: string = '';
-  rating: number = 0;
-  dowloads: number = 0;
-  comingSoon: boolean = false;
+  @Input() title: string = '';
+  @Input() description: string = '';
+  @Input() releaseDate: string = '';
+  @Input() image: string = '';
+  @Input() rating: number = 0;
+  @Input() dowloads: number = 0;
+  @Input() comingSoon: boolean = false;
 }

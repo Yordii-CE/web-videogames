@@ -1,24 +1,32 @@
 import { Injectable, booleanAttribute } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from 'src/app/types';
+import { UserRead, UserCreate } from 'src/app/types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private users: Array<User> = [];
+  private users: Array<UserCreate> = [];
 
-  constructor() {}
+  constructor() {
+    //Guardando usuario por defecto
+    const user: UserCreate = {
+      name: 'atenea',
+      email: 'atenea@gmail.com',
+      password: '12345',
+      confirmPassword: '12345',
+    };
+    this.users.push(user);
+  }
 
   // Implementa el método para registrar un usuario.
-  register(user: User): void {
+  register(user: UserCreate): boolean {
     this.users.push(user);
+    return true;
   }
 
   // Implementa el método para iniciar sesión.
   login(username: string, password: string): boolean {
-    let exists: boolean = false;
-
     const user = this.users.find(
       (el) => el.email == username && el.password == password
     );

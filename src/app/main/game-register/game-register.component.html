@@ -4,22 +4,25 @@
   <div class="columns">
     <div class="column">
       <label for="titulo">Título:</label>
-      <input type="text" id="titulo" [(ngModel)]="titulo" />
+      <input type="text" id="titulo" [(ngModel)]="title" />
       <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" [(ngModel)]="descripcion"></textarea>
+      <textarea id="descripcion" [(ngModel)]="description"></textarea>
+      <label for="imagen">Url de imagen:</label>
+      <input type="text" id="imagen" [(ngModel)]="image" />
+      <label for="descripcion">Descripción:</label>
       <label for="fechaLanzamiento">Fecha de Lanzamiento:</label>
-      <input type="date" id="fechaLanzamiento" [(ngModel)]="fechaLanzamiento" />
+      <input type="date" id="fechaLanzamiento" [(ngModel)]="releaseDate" />
       <div class="soon">
-        <input type="checkbox" id="proximamente" [(ngModel)]="proximamente" />
+        <input type="checkbox" id="proximamente" [(ngModel)]="commingSoon" />
         <label for="proximamente">Próximamente:</label>
       </div>
     </div>
     <div class="column">
       <label for="clasificacion">Clasificación:</label>
-      <input type="number" id="clasificacion" [(ngModel)]="clasificacion" />
+      <input type="number" max="5" id="clasificacion" [(ngModel)]="rating" />
       <label for="numDescargas">Número de Descargas:</label>
-      <input type="number" id="numDescargas" [(ngModel)]="numDescargas" />
+      <input type="number" id="numDescargas" [(ngModel)]="downloads" />
     </div>
   </div>
-  <button (click)="registrarVideojuego()">Registrar</button>
+  <button (click)="create()">Registrar</button>
 </div>

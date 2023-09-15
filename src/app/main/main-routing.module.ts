@@ -19,7 +19,7 @@ const authRoutes: Routes = [
     component: GameRegisterComponent,
   },
   {
-    path: 'soon',
+    path: 'comming-soon',
     component: SoonComponent,
   },
 ];

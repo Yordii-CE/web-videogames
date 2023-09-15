@@ -1,32 +1,28 @@
 <div class="game-card">
-  <h4>Titulo: The soccer 2022</h4>
+  <h4>Titulo: {{ title }}</h4>
   <div class="game-card-image">
-    <img
-      src="https://pressover.news/wp-content/uploads/2020/03/NKS24MV2ZRBC5KYBMLUYHBJVRY.jpg"
-      alt="Nombre del juego"
-    />
+    <img src="{{ image }}" alt="Nombre del juego" />
   </div>
   <div class="game-card-details">
     <div class="description">
-      <p class="date">Fecha de Lanzamiento: 01 de enero de 2023</p>
+      <p class="date">Fecha de Lanzamiento: {{ releaseDate }}</p>
 
       <div class="rating">
-        <!-- Clasificación en estrellas -->
-        <fa-icon [icon]="starFill"></fa-icon>
-        <fa-icon [icon]="star"></fa-icon>
-        <fa-icon [icon]="star"></fa-icon>
-        <fa-icon [icon]="star"></fa-icon>
-        <fa-icon [icon]="star"></fa-icon>
+        <fa-icon
+          *ngFor="let i of [].constructor(rating)"
+          [icon]="starFill"
+        ></fa-icon>
+        <fa-icon
+          *ngFor="let i of [].constructor(5 - rating)"
+          [icon]="star"
+        ></fa-icon>
       </div>
     </div>
 
-    <p>Descripción del juego:</p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eum sed
-      praesentium, minus nesciunt cumque reprehenderit magni libero tempore
-      voluptatibus sapiente quo recusandae et molestiae veniam quae distinctio
-      ratione temporibus.
-    </p>
+    <div>
+      <p>Descripción del juego:</p>
+      <p>{{ description }}</p>
+    </div>
     <button class="add-to-cart">Agregar al Carrito</button>
   </div>
 </div>

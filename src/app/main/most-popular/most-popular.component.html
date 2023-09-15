@@ -1,9 +1,11 @@
 <app-menu></app-menu>
 <div class="games page">
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+  <app-card
+    *ngFor="let game of games"
+    [title]="game.title"
+    [description]="game.description"
+    [releaseDate]="game.releaseDate"
+    [image]="game.image"
+    [rating]="game.rating"
+  ></app-card>
 </div>

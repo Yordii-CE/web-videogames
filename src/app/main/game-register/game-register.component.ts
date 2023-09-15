@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GameService } from 'src/app/services/game-service/game.service';
+import { Game } from 'src/app/types';
 
 @Component({
   selector: 'app-game-register',
@@ -6,22 +8,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./game-register.component.css'],
 })
 export class GameRegisterComponent {
-  public titulo: string = '';
-  public descripcion: string = '';
-  public fechaLanzamiento: string = '';
-  public proximamente: boolean = true;
-  public clasificacion: number = 0;
-  public numDescargas: number = 0;
+  public title: string = '';
+  public description: string = '';
+  public releaseDate: string = '';
+  public image: string = '';
+  public rating: number = 0;
+  public downloads: number = 0;
+  public commingSoon: boolean = true;
 
-  registrarVideojuego() {
-    // Aquí puedes agregar la lógica para registrar el videojuego
-    // Por ejemplo, puedes enviar los datos a un servicio o API.
-    console.log('Videojuego registrado:');
-    console.log('Título:', this.titulo);
-    console.log('Descripción:', this.descripcion);
-    console.log('Fecha de Lanzamiento:', this.fechaLanzamiento);
-    console.log('Próximamente:', this.proximamente);
-    console.log('Clasificación:', this.clasificacion);
-    console.log('Número de Descargas:', this.numDescargas);
+  constructor(private gameService: GameService) {}
+  create() {
+    if (
+      this.title != '' &&
+      this.description != '' &&
+      this.releaseDate != '' &&
+      this.image != ''
+    ) {
+      const game: Game = {
+        title: this.title,
+        description: this.description,
+        releaseDate: this.releaseDate,
+        image: this.image,
+        rating: this.rating,
+        downloads: this.downloads,
+        commingSoon: this.commingSoon,
+      };
+
+      const response = this.gameService.create(game);
+      if (response) alert('Juego registrado correctamente');
+    } else {
+      alert('Rellenar todos los campos.');
+    }
   }
 }
