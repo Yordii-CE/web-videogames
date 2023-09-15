@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+<div class="game-registration page">
+  <h2>Agregar nuevo videojuego</h2>
+  <div class="columns">
+    <div class="column">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" [(ngModel)]="titulo" />
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" [(ngModel)]="descripcion"></textarea>
+      <label for="fechaLanzamiento">Fecha de Lanzamiento:</label>
+      <input type="date" id="fechaLanzamiento" [(ngModel)]="fechaLanzamiento" />
+      <div class="soon">
+        <input type="checkbox" id="proximamente" [(ngModel)]="proximamente" />
+        <label for="proximamente">Próximamente:</label>
+      </div>
+    </div>
+    <div class="column">
+      <label for="clasificacion">Clasificación:</label>
+      <input type="number" id="clasificacion" [(ngModel)]="clasificacion" />
+      <label for="numDescargas">Número de Descargas:</label>
+      <input type="number" id="numDescargas" [(ngModel)]="numDescargas" />
+    </div>
+  </div>
+  <button (click)="registrarVideojuego()">Registrar</button>
+</div>
