@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user-service/user.service';
 
 @Component({
@@ -6,7 +6,18 @@ import { UserService } from 'src/app/services/user-service/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   email: string = '';
-  constructor(userService: UserService) {}
+  password: string = '';
+  constructor(private userService: UserService) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  login(){
+    if(this.email != '' && this.password != ''){
+
+      this.userService.login(this.email, this.password);
+    }
+  }
 }

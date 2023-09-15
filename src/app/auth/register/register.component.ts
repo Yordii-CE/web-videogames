@@ -5,4 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {}
+export class RegisterComponent {
+  private name : string = '';
+  private email : string = '';
+  private password :string = '';
+  private confirm_password : string = '';
+}
