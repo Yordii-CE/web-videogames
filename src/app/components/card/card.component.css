@@ -39,11 +39,8 @@
   }
   
   .game-card-details {
-    display: flex;
-    flex-direction: column;    
-
-    flex: 2;
- 
+    position: relative;  
+    flex: 2; 
   }
   
   .game-card-details h2 {
@@ -63,6 +60,8 @@
     padding: 10px 20px;
     cursor: pointer;
     width: 100%;
+    position: absolute;
+    bottom: 0;
     align-self: flex-end !important;
   }
   
